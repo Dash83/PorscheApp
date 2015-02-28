@@ -4,5 +4,10 @@
     <string name="app_name">Tarea1</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string-array name="car_list">
+        <item>Porsche 911</item>
+        <item>Porsche Boxster</item>
+        <item>Porsche Cayman</item>
+        <item>Porsche Cayenne</item>
+    </string-array>
 </resources>
