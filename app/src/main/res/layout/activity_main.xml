@@ -13,13 +13,25 @@
     </FrameLayout>
 
     <!-- Drawer Content -->
-    <ListView
-        android:layout_width="240dp"
+    <LinearLayout
         android:layout_height="match_parent"
-        android:id="@+id/leftDrawer"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
+        android:layout_width="240dp"
+        android:id="@+id/left_drawer"
+        android:orientation="vertical"
         android:layout_gravity="start"
-        android:background="#EEEEEE"/>
+        android:background="#EEEEEE">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/left_drawer_imageLogo"
+            android:src="@drawable/porsche_logo"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/left_drawer_list"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            />
+    </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -28,7 +28,8 @@ public class CarFragment  extends Fragment
         String car = getResources().getStringArray(R.array.car_list)[car_index];
 
         //Set car image
-        //int imageId = getResources().getIdentifier()
+        int imageId = getResources().getIdentifier(car.toLowerCase(), "drawable", getActivity().getPackageName());
+        ((ImageView)rootView.findViewById(R.id.imageCar)).setImageResource(imageId);
 
         //Set car name
         String car_name = getResources().getStringArray(R.array.car_list)[car_index];

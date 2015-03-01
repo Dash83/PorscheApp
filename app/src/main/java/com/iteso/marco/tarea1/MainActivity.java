@@ -11,12 +11,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 
 public class MainActivity extends ActionBarActivity {
     private String[] cars;
     private DrawerLayout mDrawerLayout;
+    private LinearLayout mDrawerRelativeLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mTitle = "";
@@ -31,7 +34,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         cars = getResources().getStringArray(R.array.car_list);
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView)findViewById(R.id.leftDrawer);
+        mDrawerRelativeLayout = (LinearLayout)findViewById(R.id.left_drawer);
+        mDrawerList = (ListView)findViewById(R.id.left_drawer_list);
         mTitle = mDrawerTitle = getTitle();
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close){
           public void onDrawerClosed(View view)
@@ -89,7 +93,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         //If the nav drawer is open, hide action items related to the content view.
-        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerRelativeLayout);
         menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
@@ -110,7 +114,7 @@ public class MainActivity extends ActionBarActivity {
         // Highlight selected item, update title, close drawer
         mDrawerList.setItemChecked(position, true);
         setTitle(cars[position]);
-        mDrawerLayout.closeDrawer(mDrawerList);
+        mDrawerLayout.closeDrawer(mDrawerRelativeLayout);
 
     }
 

@@ -7,7 +7,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageCar"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -22,10 +24,15 @@
         android:id="@+id/ratingBar"
         android:layout_gravity="right" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Car Description"
-        android:id="@+id/textDescription"
-        android:layout_gravity="center_horizontal" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Car Description"
+            android:id="@+id/textDescription"
+            android:layout_gravity="center_horizontal" />
+    </ScrollView>
+
 </LinearLayout>

@@ -8,10 +8,10 @@
     <string name="drawer_close">Close Navigation Drawer</string>
 
     <string-array name="car_list">
-        <item>Porsche 911</item>
-        <item>Porsche Boxster</item>
-        <item>Porsche Cayman</item>
-        <item>Porsche Cayenne</item>
+        <item>Porsche_911</item>
+        <item>Porsche_Boxster</item>
+        <item>Porsche_Cayman</item>
+        <item>Porsche_Cayenne</item>
     </string-array>
 
     <string-array name="car_desc_list">
