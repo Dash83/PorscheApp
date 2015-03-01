@@ -1,8 +1,11 @@
 package com.iteso.marco.tarea1;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +18,9 @@ public class MainActivity extends ActionBarActivity {
     private String[] cars;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
-
+    private ActionBarDrawerToggle mDrawerToggle;
+    private CharSequence mTitle = "";
+    private CharSequence mDrawerTitle = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -27,6 +32,25 @@ public class MainActivity extends ActionBarActivity {
         cars = getResources().getStringArray(R.array.car_list);
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         mDrawerList = (ListView)findViewById(R.id.leftDrawer);
+        mTitle = mDrawerTitle = getTitle();
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close){
+          public void onDrawerClosed(View view)
+          {
+              super.onDrawerClosed(view);
+              //getActionBar().setTitle(mTitle);
+              invalidateOptionsMenu();
+          }
+
+          public void onDrawerOpened(View view)
+          {
+             super.onDrawerOpened(view);
+             //getActionBar().setTitle(mDrawerTitle); <- Null pointer Exception? How is the action bar null?
+             invalidateOptionsMenu();
+          }
+        };
+
+        //Set the drawer toggle as DrawerListener
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         //Set the data
         adapter = new ArrayAdapter<>(this, R.layout.drawer_list_item, cars);
@@ -34,8 +58,7 @@ public class MainActivity extends ActionBarActivity {
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
+                selectItem(position);
             }
         });
     }
@@ -61,5 +84,39 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        //If the nav drawer is open, hide action items related to the content view.
+        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    private void selectItem(int position)
+    {
+        Fragment fragment = new CarFragment();
+        Bundle args = new Bundle();
+        args.putInt(CarFragment.ARG_CAR_NUMBER, position);
+        fragment.setArguments(args);
+
+        //Replace current fragment with new fragment
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                        .replace(R.id.contentFrame, fragment)
+                        .commit();
+
+        // Highlight selected item, update title, close drawer
+        mDrawerList.setItemChecked(position, true);
+        setTitle(cars[position]);
+        mDrawerLayout.closeDrawer(mDrawerList);
+
+    }
+
+    public void setTile(String title)
+    {
+        mTitle = title;
+        getActionBar().setTitle(mTitle);
     }
 }

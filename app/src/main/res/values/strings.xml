@@ -4,10 +4,20 @@
     <string name="app_name">Tarea1</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="drawer_open">Open Navigation Drawer</string>
+    <string name="drawer_close">Close Navigation Drawer</string>
+
     <string-array name="car_list">
         <item>Porsche 911</item>
         <item>Porsche Boxster</item>
         <item>Porsche Cayman</item>
         <item>Porsche Cayenne</item>
+    </string-array>
+
+    <string-array name="car_desc_list">
+        <item>The 911. Our identity. A truly distinctive design. Technology that was born on the race track. Emotional impact that has been standard since 1963. Yet, is that enough to move forward? Don’t we need to break the stranglehold of tradition once in a while before it one day brings us to a complete standstill? We believe that the answer is ‘yes’, which is why no fewer than 90% of the components of the 911 are either new or have been fundamentally revised. This is our approach to the preservation of tradition. And it is precisely how we do justice to the 911 legend. </item>
+        <item>Has it really been 15 years since the debut of the original Boxster? An instant design classic, a powerful mid-engined sports car, a purebred roadster. It was clear the Boxster did full justice to its predecessors in the Porsche lineage. As Porsche engineers planned the thirdgeneration Boxster, the question was, how could it continue to do so in the future? How could the Boxster evolve into something even more evocative of the essence of Porsche performance? The answer was found where it always is at Porsche: in the harmonious blending of style, functionality, and innovation. </item>
+        <item>The new Cayman models. Built to our specifications and the code of the curve. Consistently realized in a sports car that contradicts the common conventions of automobile manufacturing. And which reinterprets the fascination of the sports car. Accompany the new Cayman to that place where you can feel the butterflies in your stomach: into the curve. </item>
+        <item>Inside and out, this vehicle exudes one thing above all else: enthusiasm. For life, and for the road. The front is the perfect expression of dynamic character. This is clearly reflected in the completely revised hood and sporty contoured fenders. Also new is the sharper design of the Bi-Xenon™ headlights with integrated daytime running lights featuring four LED spotlights, which are fitted as standard. </item>
     </string-array>
 </resources>
