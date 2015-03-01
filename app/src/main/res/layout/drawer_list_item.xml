@@ -4,4 +4,6 @@
         android:id="@+id/text1"
         android:gravity="center_vertical"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp"/>
+        android:paddingRight="16dp"
+        android:textSize="18dp"
+        android:paddingTop="3dp"/>

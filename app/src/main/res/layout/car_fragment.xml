@@ -9,14 +9,21 @@
         android:id="@+id/imageCar"
         android:layout_gravity="top"
         android:paddingTop="0dp"
-        android:paddingBottom="0dp"/>
+        android:paddingBottom="0dp"
+        android:scaleType="fitStart"
+        android:adjustViewBounds="true"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:singleLine="true"
         android:text="Car Name"
         android:id="@+id/textCarName"
-        android:layout_gravity="center_horizontal" />
+        android:gravity="center_horizontal" />
 
     <RatingBar
         android:layout_width="wrap_content"

@@ -19,9 +19,11 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends ActionBarActivity {
     private String[] cars;
+    private String[] options;
     private DrawerLayout mDrawerLayout;
     private LinearLayout mDrawerRelativeLayout;
     private ListView mDrawerList;
+    private ListView mDrawerOptions;
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mTitle = "";
     private CharSequence mDrawerTitle = "";
@@ -30,6 +32,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         ArrayAdapter<String> adapter;
+        ArrayAdapter<String> options_adapter;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -37,6 +40,8 @@ public class MainActivity extends ActionBarActivity {
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         mDrawerRelativeLayout = (LinearLayout)findViewById(R.id.left_drawer);
         mDrawerList = (ListView)findViewById(R.id.left_drawer_list);
+        mDrawerOptions = (ListView)findViewById(R.id.left_drawer_options);
+
         mTitle = mDrawerTitle = getTitle();
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close){
           public void onDrawerClosed(View view)
@@ -59,7 +64,7 @@ public class MainActivity extends ActionBarActivity {
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         //getActionBar().setHomeButtonEnabled(true);  <- Null reference again?
 
-        //Set the data
+        //Set the list data
         adapter = new ArrayAdapter<>(this, R.layout.drawer_list_item, cars);
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -68,6 +73,11 @@ public class MainActivity extends ActionBarActivity {
                 selectItem(position);
             }
         });
+
+        //Set the options data
+        options = getResources().getStringArray(R.array.options);
+        options_adapter = new ArrayAdapter<>(this, R.layout.target_item, options);
+        mDrawerOptions.setAdapter(options_adapter);
     }
 
     @Override
